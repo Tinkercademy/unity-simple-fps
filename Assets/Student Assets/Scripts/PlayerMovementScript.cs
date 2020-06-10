@@ -8,12 +8,14 @@ public class PlayerMovementScript : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public CharacterController controller;
+    public PlayerData playerData;
 
     private float yVelocity;
 
     void Update()
     {
         controller.Move((UpdatePlayerMovement() + UpdatePlayerGravity()) * Time.deltaTime);
+        playerData.playerPos = transform.position;
     }
 
     float MoveInputX()
